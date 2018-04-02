@@ -62,7 +62,7 @@ mode:
 		filename:'[name].bundel.js'
 		}
 
-###模板html-webpack-plugin
+### 模板html-webpack-plugin
 
 		new htmlWebpackPlugin({
 				minify:{
@@ -93,14 +93,14 @@ mode:
 		       template:"./src/index.html"
 		})
 
-###clean-webpack-plugin：删除某些东西（清除）
+### clean-webpack-plugin：删除某些东西（清除）
 
     npm i clean-webpack-plugin -D
 
     const CleanwebpackPlugin = require('clean-webpack-plugin');
     new CleanwebpackPlugin(['dist'])//使用
 
-###devServer
+### devServer
  
     npm i webpack-dev-server -D
 
@@ -127,7 +127,7 @@ mode:
     const webpack=require("webpack");//webpack自带热更新模块
     new webpack.HotModuleReplacementPlugin(),//打开热更新模块
 
-##压缩css
+## 压缩css
 npm i style-loader css-loader -D
 
     module:{
@@ -139,11 +139,11 @@ npm i style-loader css-loader -D
         ]
     }
 
-##压缩js
+## 压缩js
 
     打包的时候使用webpack --production
 
-##压缩图片
+## 压缩图片
     npm i file-loader url-loader -D
     url-loader依赖file-loader
     module:{
@@ -193,7 +193,7 @@ npm i style-loader css-loader -D
         ]
     },
 
-###分离less
+### 分离less
 
 		npm i less less-loader -D
          {
@@ -206,7 +206,7 @@ npm i style-loader css-loader -D
                 })//配合extract-text-webpack-plugin使用
             },
 
-###分离sass
+### 分离sass
 
 
   	   npm i node-sass sass-loader -D
