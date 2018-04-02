@@ -79,6 +79,7 @@ module.exports={
         //热更新
         hot:true
     },
+    // devtool:'source-map',//调试，会暴露源码
     plugins:[
         new CleanwebpackPlugin(['dist']),
         new webpack.HotModuleReplacementPlugin(),//打开热更新模块

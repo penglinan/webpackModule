@@ -260,3 +260,30 @@ Purifycss
 	 new PurifyCssWebpack({
 	            paths:glob.sync(path.join(__dirname,'src/*.html'))
 	        })
+
+### 项目调试：
+
+webpack4.x开启调试：
+--mode development
+
+### babel
+
+- babel用来编译js
+- 让你轻松使用ESnext转化
+- jsx
+
+babel-core babel-loader babel-preset-env
+
+1下载 npm i babel-core babel-loader babel-preset-env -D
+2.配置
+
+    {
+    test:/\.(js/jsx)$/,
+    use:[
+		  {
+			loader:'babel-loader',
+			options:{preset:'env'}
+			 }
+		],
+    exclude:/node_modules/
+    }
