@@ -1,0 +1,16 @@
+body{
+    background:url("../img/banner1.png") right repeat-y;
+    transform: rotate(45deg);
+}
+.a{
+    color:#ccc;
+}
+.b{
+width:100px;
+}
+.fl{
+    float:left;
+}
+.width{
+    width:100px;
+}
