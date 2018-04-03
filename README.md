@@ -287,3 +287,80 @@ babel-core babel-loader babel-preset-env
 		],
     exclude:/node_modules/
     }
+
+## <font color="#c63c26">模块化配置</font>
+例如新建webpack.rules.js
+
+    const xxx={xxx:xxx};
+    module.exports=rules;//模块输出，只有输出了，才能被应用
+
+需要引用webpack.rules.js的文件，需要执行
+
+    const Rules=require("./webpack.rules.js");
+
+### <font color="#c63c26">在webpack中使用json</font>
+
+定义一个json文件比如webpack.config.json
+
+    {“port”:8090,"host":"localhost"}
+调用的文件需要引入webpack.config.json
+
+    const json=require("./webpack.config.json")
+需要调用port的时候使用json.port
+
+###静态资源输出copy-webpack-plugin
+1.下载
+
+	npm i copy webpack-plugin -D
+2.引入
+
+	const CopyWebpackPlugin=require('copy-webpack-plugin');
+3.使用
+
+    plugins:[new CopyWebpackPlugin([{
+    from:path.resolve(__dirname,'src/assets'),
+    to:'./public'
+    }])]
+
+
+### <font color="#c63c26">使用第三方库</font>
+#### 第一种方法
+1.直接npm下载,然后引入
+
+    npm i jquery -D
+2.引入jquery
+
+	import $ from 'jquery'
+
+#### 第二种方法
+
+    const webpack =require('webpack');
+    在plugins里面使用:
+    new webpack.ProvidePlugin({
+    $:'jquery',
+    lodash:'lodash'
+    ....
+    })
+
+#### <font color="#c63c26">两种方法的区别</font>
+前者引入之后，无论你在代码中是否用到jquery，打包之后，都会把jquery打进去，而后者不会
+
+
+#### optimization.splitChunks把js文件分离出来
+
+在module.exports里面添加
+
+		 optimization:{
+		        splitChunks:{
+		            cacheGroups:{
+		                vendaor:{
+		                    chunks:'initial',
+		                     name:'jquery',
+		                    enforce:true
+		                }
+	                    aaa:{ 
+							.......
+	                    }
+		            }
+		        }
+		    }
